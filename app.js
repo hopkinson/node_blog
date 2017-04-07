@@ -4,8 +4,6 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
-//	上传文件
-var multer = require('multer');
 // 会话
 var session = require('express-session');
 var MongoStore = require('connect-mongo')(session);
@@ -20,7 +18,6 @@ var settings = require('./setting.js');
 
 
 var app = express();
-
 // port端口
 app.set('port', process.env.PORT || 4000)
 
@@ -37,6 +34,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+
 //会话信息存储到mongoDB中
 app.use(session({
     secret: settings.cookieSecret, //防止篡改cookie
@@ -55,7 +53,6 @@ app.use(session({
 }))
 
 
-app.use(multer)
 
 routes(app);
 

@@ -1,16 +1,5 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <title><%= title %></title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
-  </head>
-  <body>
-    <!-- <h1><%= title %></h1> -->
-    <!-- <p>Welcome to <%= title %></p> -->
-
-  <%- include header %> 
-
-  <% posts.forEach(function(post){  %>
+<%- include header %> 
+  <% posts.forEach(function(post){ %>
   	<p>
   		<h2>
   			<a href="/u/<%= post.name %>/<%= post.time.day %>/<%= post.title %>">
@@ -28,5 +17,3 @@
   	</p>
   <%- post.post %> 
   <% }) %>
-  </body>
-</html>
